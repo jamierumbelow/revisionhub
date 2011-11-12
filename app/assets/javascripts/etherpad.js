@@ -1,49 +1,8 @@
-(function( $ ){
-
-  $.fn.pad = function( options ) {
-    var settings = {
-      'host'		 : 'http://10.30.201.4:9001',
-      'baseUrl'		 : '/p/',
-      'showControls'     : true,
-      'showChat'	 : false,
-      'showLineNumbers'  : true,
-      'userName'	 : 'unnamed',
-      'useMonospaceFont' : false,
-      'noColors'   : 'false'
-    };
-
-    // This writes a new frame if required
-    if ( !options.getContents )
-    {
-      if ( options ) 
-      { 
-        $.extend( settings, options );
-      }
-      var epframe = this.attr('id');
-      var iFrameLink = '<iframe id="epframe'+epframe+'" src="'+settings.host+settings.baseUrl+settings.padId+'?showControls='+settings.showControls+'&showChat='+settings.showChat+'&showLineNumbers='+settings.showLineNumbers+'&useMonospaceFont='+settings.useMonospaceFont+'&userName=' + settings.userName + '&noColors=' + settings.noColors + '"></iframe>';
-      // console.log(iFrameLink);
-      this.html(iFrameLink);
-    }
-
-    // This reads the etherpad contents if required
-    if ( options.getContents )
-    {
-      // Specify the target Div
-      var targetDiv = options.getContents;
-
-      // Get the frame properties and provide us with an export path
-      var frameID = this.attr('id');
-      var epframe = "epframe"+frameID;
-      var frameUrl = document.getElementById(epframe).src;
-      if (frameUrl.indexOf("?")>-1){
-        frameUrl = frameUrl.substr(0,frameUrl.indexOf("?"));
-      }
-      var contentsUrl = frameUrl + "/export/html";
-
-      // perform an ajax call on contentsUrl and write it to the parent
-      $.get(contentsUrl, function(data) {
-      $('#'+targetDiv).html(data);
-      });
-    }
-  };
-})( jQuery );
+/**
+ * etherpad.js
+ * https://github.com/johnyma22/etherpad-lite-jquery-plugin
+ * 
+ * by John McLear <john@mclear.co.uk>
+ */
+(function(c){c.fn.pad=function(a){var b={host:"http://localhost:9001",baseUrl:"/p/",showControls:true,showChat:false,showLineNumbers:true,userName:"unnamed",useMonospaceFont:false,noColors:"false"};if(!a.getContents){a&&c.extend(b,a);var d=this.attr("id");this.html('<iframe id="epframe'+d+'" src="'+b.host+b.baseUrl+b.padId+"?showControls="+b.showControls+"&showChat="+b.showChat+"&showLineNumbers="+b.showLineNumbers+"&useMonospaceFont="+b.useMonospaceFont+"&userName="+b.userName+"&noColors="+b.noColors+
+'"></iframe>')}if(a.getContents){var e=a.getContents,d="epframe"+this.attr("id"),a=document.getElementById(d).src;a.indexOf("?")>-1&&(a=a.substr(0,a.indexOf("?")));c.get(a+"/export/html",function(a){c("#"+e).html(a)})}}})(jQuery);

@@ -1,4 +1,6 @@
 Revisionhub::Application.routes.draw do
+  resources :searches, :only => [ :create ] # POST /searches
+
   devise_for :users
 
   get "home/index"
