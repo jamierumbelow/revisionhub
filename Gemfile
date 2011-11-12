@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'sqlite3'
 
 gem 'etherpad-lite'
+gem 'devise'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
