@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+#called in the home controller
+#written by jack franklin
+
+$ ->
+    #make an etherpad (test)
+    $("#padtest").pad
+        'host' : 'http://10.0.2.2:9001',
+        'padId' : 'test',
+        'showControls' : true
+    
