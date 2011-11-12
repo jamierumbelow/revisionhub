@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  university_id: 1
-  title: MyString
+  name: MyString
 
 two:
-  university_id: 1
-  title: MyString
+  name: MyString
