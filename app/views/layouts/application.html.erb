@@ -7,7 +7,9 @@
   <%= javascript_include_tag "etherpad" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<%= user_data_attributes('body') %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
