@@ -2,7 +2,7 @@
 
   $.fn.pad = function( options ) {
     var settings = {
-      'host'		 : 'http://10.0.2.2:9001',
+      'host'		 : 'http://10.30.201.4:9001',
       'baseUrl'		 : '/p/',
       'showControls'     : true,
       'showChat'	 : false,

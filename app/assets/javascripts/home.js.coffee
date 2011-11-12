@@ -5,4 +5,4 @@ $ ->
     #make an etherpad (test)
     $("#padtest").pad
         'padId' : 'test',
-        'userName' : 'jack' 
+        'userName' : $('body').attr 'data-current-user-name'
