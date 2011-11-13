@@ -1,0 +1,89 @@
+@import url("reset.css");
+@import url("slide.css");
+
+/*==============================*/
+
+/*
+Colour hashes:
+Owl Yellow: eab625
+Owl Brown: 79301e
+Text Light Orange: de7d40
+Text Bright Orange: cc4e1a
+
+*/
+html { 
+	overflow: auto; 
+	height: 100%; 
+}
+
+body { 
+   	font-family: Helvetica, Geneva, Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    line-height: 1.5em;
+    background: #fff;
+    margin: 0 auto; 
+    font-size: 12pt; 
+}
+
+a {
+	color: #eab625;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #cc4e1a;
+}
+
+a img {
+  border: none;/*remove border for linked images*/
+}
+
+
+h1 {
+	font-size: 1.6em;
+	height: 20px;
+	padding-top: 0;
+}
+
+h2 {
+	font-size: 1.2em;
+	height: 20px;
+	padding-top: 0;
+}
+
+
+/*======================*/
+
+#header { 
+	height: 120px; 
+	width: 800px; 
+	position: relative;
+}
+
+
+#logo { position: absolute; left: 15px; top: -20px; width: 250px; }
+
+
+#footer {
+	position: relative;
+	bottom: 10px;
+}
+
+#footer > .links {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#bottom { 
+	width: 100%; 
+	height: 60px;
+	position: absolute; 
+	bottom: 0; 
+	background: #272727;
+	border-top: 1px solid #000;
+}
+
+/*=====================*/
+.hidden { display: none; }
+
