@@ -1,0 +1,131 @@
+@import url("reset.css");
+@import url("slide.css");
+
+/*==============================*/
+
+/*
+Colour hashes:
+Owl Yellow: eab625
+Owl Brown: 79301e
+Text Light Orange: de7d40
+Text Bright Orange: cc4e1a
+
+*/
+html { 
+	overflow: auto; 
+	height: 100%; 
+}
+
+body { 
+   	font-family: Helvetica, Geneva, Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    line-height: 1.5em;
+    background: #fff;
+    margin: 0 auto; 
+    font-size: 12pt; 
+}
+
+a {
+	color: #eab625;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #cc4e1a;
+}
+
+a img {
+  border: none;/*remove border for linked images*/
+}
+
+
+h1 {
+	font-size: 1.6em;
+	height: 20px;
+	padding-top: 0;
+}
+
+h2{
+	font-size: 1.2em;
+	height: 20px;
+	padding-top: 0;
+}
+
+
+/*======================*/
+
+#header { 
+	height: 120px; 
+	width: 800px; 
+	margin: auto; 
+	text-align: center; 
+}
+
+
+#logo { width: 350px; }
+
+
+#content { 
+	height: 200px;
+    background-image: url(<%= image_path("pattern.png") %>);
+	border-top: 1px solid #dadbd9; 
+	border-bottom: 1px solid #dadbd9;
+}
+
+
+#search { 
+
+	display: block;
+	margin: 60px auto 0 auto;
+	width: 432px;
+	
+}
+
+#search > input { 
+	padding: 5px;
+	width: 420px; 
+	height: 30px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #adabab;
+	font-size: 0.9em;
+}
+
+#results { display: block; width: 420px; margin:5px auto 0 auto; color: #fff; }
+
+.title-text { width: 300px; }
+.title-text-active { color: #a1a1a1; font-style: italic;  }
+
+#footer {
+	height: 100%;
+	margin-top: 1px;
+	border-top: 2px solid #272727;
+}
+
+#footer > .links {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#bottom { 
+	width: 100%; 
+	position: absolute; 
+	bottom: 0; 
+	border-bottom: 5px solid black;
+}
+
+/*=====================*/
+.hidden { display: none; }
+
+
+.alert {
+    text-align: center;
+    background: #ddd;
+    color: #800517;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+
