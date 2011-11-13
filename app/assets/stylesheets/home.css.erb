@@ -46,7 +46,7 @@ h1 {
 	padding-top: 0;
 }
 
-h2{
+h2 {
 	font-size: 1.2em;
 	height: 20px;
 	padding-top: 0;
@@ -63,9 +63,6 @@ h2{
 }
 
 
-#logo { width: 350px; }
-
-
 #content { 
 	min-height: 200px;
     background-image: url(<%= image_path("pattern.png") %>);
@@ -75,14 +72,12 @@ h2{
 
 
 #search { 
-
 	display: block;
-	margin: 60px auto 0 auto;
+	margin: 40px auto 0 auto;
 	width: 432px;
-	
 }
 
-#search > input { 
+#search > input {
 	padding: 5px;
 	width: 420px; 
 	height: 30px;
@@ -92,6 +87,9 @@ h2{
 	border: 1px solid #adabab;
 	font-size: 0.9em;
 }
+
+input:focus { outline: none; border: 1px solid #cc4e1a; }
+
 
 #results { display: block; width: 420px; margin:5px auto 0 auto; color: #fff; }
 
@@ -128,4 +126,13 @@ h2{
     padding: 5px 0;
 }
 
+#standfirst {
+	color: #fff;
+    width: 960px;
+    text-align:center;
+    margin: 30px auto;
+    font-size: 20px;
+}
+
+.prompt-active { color: #a1a1a1; font-style: italic; }
 

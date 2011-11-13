@@ -1,0 +1,16 @@
+development: &development
+  adapter: sqlite3
+  database: db/revisionhub_development.sqlite3
+
+test:
+  adapter: mysql
+  host: localhost
+  user: root
+  password: root
+  database: revisionhub_test
+
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
