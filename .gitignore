@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 Gemfile.lock
 .DS_Store
+config/github.yml
