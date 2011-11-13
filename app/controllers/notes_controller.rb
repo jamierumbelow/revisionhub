@@ -4,7 +4,7 @@ class NotesController < ApplicationController
     git.add('.').and.commit({ '-m' => '"Some files"' }).and.push('origin master')
     
     output = "<pre>Command to run: #{git.cmd}\n"
-    output << git.![0]
+    output << git.!
     
     render :text => output
   end
