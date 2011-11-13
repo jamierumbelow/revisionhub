@@ -58,7 +58,11 @@
                             <li id="guestmessage">Hello Guest!</li>
                             <li class="sep">|</li>
                             <li id="toggle">
-                                <a id="open" class="open" href="#">Log In | Register</a>
+                                <% if user_signed_in? %>
+                                    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                                <% else %>
+                                    <a id="open" class="open" href="#">Log In | Register</a>
+                                <% end %>
                                 <a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
                             </li>
                             <li class="right">&nbsp;</li>
