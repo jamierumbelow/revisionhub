@@ -14,6 +14,13 @@ class NotesController < ApplicationController
       @git.push('origin master').!
     end
   end
+  
+  def new
+    @note = Note.new
+    @courses = Course.find_all_by_university_id(89)
+    
+    render :action => 'new'
+  end
 
   def create
     @pad = Note.create!(params[:note])

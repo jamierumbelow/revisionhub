@@ -1,0 +1,21 @@
+<div id="new-note-wrap">
+	<%= form_for @note do |f| -%>
+		<h2>What course?</h2>
+		
+		<br />
+		<br />
+		
+		<p><%= f.select :course_id, @courses.collect { |c| [ c.name, c.id ] } %></p>
+		
+		<br />
+		<br />
+	
+		<h2>What lecture is this?</h2>
+	<br />
+		<%# f.hidden_field :course_id, 6911 %>
+	  <p>
+		<%= f.text_field :title %><br />
+		<%= f.submit "Edit!" %>
+	  </p>
+	<% end -%>
+</div>

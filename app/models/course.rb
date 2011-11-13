@@ -5,4 +5,8 @@ class Course < ActiveRecord::Base
   define_index do
     indexes :name
   end
+  
+  def to_s
+    name
+  end
 end
