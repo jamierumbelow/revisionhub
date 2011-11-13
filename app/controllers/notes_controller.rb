@@ -5,20 +5,20 @@ class NotesController < ApplicationController
   def show
     @pad = @etherpad.pad(params[:id])
     @note = Note.find params[:id]
-    
-    puts @note.git_file_path
-    
+        
     unless File.exists?(@note.git_file_path)
-      @git.add(@note.relative_git_file_path).and.commit('-m "Adding lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').and.push('origin master')
+      @note.write @pad.text
+      
+      @git.add(@note.relative_git_file_path).and.commit('-m "Adding lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').!
+      @git.pull('origin master').!
+      @git.push('origin master').!
     end
   end
 
   def create
-    @pad = Pad.create!(params[:pad])
+    @pad = Note.create!(params[:note])
     @etherpad.pad @pad.id
-    
-    @git.add(@note.relative_git_file_path).and.commit('-m "Adding lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').and.push('origin master')
-    
+        
     redirect_to @pad
   end
 
@@ -27,7 +27,9 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     
     @note.write @pad.text
-    @git.add(@note.relative_git_file_path).and.commit('-m "Updating lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').and.push('origin master')
+    @git.add(@note.relative_git_file_path).and.commit('-m "Updating lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').and.push('origin master').!
+    @git.pull('origin master').!
+    @git.push('origin master').!
     
     render :json => true
   end

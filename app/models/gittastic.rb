@@ -36,7 +36,11 @@ class Gittastic
   
   # Execute the command and return the result
   def !
-    `cd #{@path} && #{@cmd}`
+    result = `cd #{@path} && #{@cmd}`
+    
+    clear!
+    
+    result
   end
   
   # A short helper method to link methods together

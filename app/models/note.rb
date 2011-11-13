@@ -2,6 +2,8 @@ class Note < ActiveRecord::Base
   belongs_to :course
   has_and_belongs_to_many :tags
   
+  after_create :create_git_stuff
+  
   define_index do
     indexes :title
     indexes course.name, :as => :course_name
@@ -13,7 +15,7 @@ class Note < ActiveRecord::Base
   end
   
   def relative_git_file_path
-    "/" + course.university.name.parameterize + '/' + course.name.parameterize + '/' + title.parameterize + '.txt'
+    course.university.name.parameterize + '/' + course.name.parameterize + '/' + title.parameterize + '.txt'
   end
   
   def write(content)
@@ -32,5 +34,14 @@ class Note < ActiveRecord::Base
   
   def root_path
     @root_path ||= Rails.root.to_s + YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git']
+  end
+  
+  protected
+  
+  def create_git_stuff
+    @git = Gittastic.new(root_path)
+    @git.add(relative_git_file_path).and.commit('-m "Adding lecture note ' + title + ' (' + course.university.name + ' - ' + course.name + ')"').and.push('origin master').!
+    @git.pull('origin master').!
+    @git.push('origin master').!
   end
 end
