@@ -1,4 +1,5 @@
 Revisionhub::Application.routes.draw do
+  resources :notes, :only => [ :show, :create, :update ]
   resources :searches, :only => [ :create ] # POST /searches
 
   devise_for :users
