@@ -1,21 +1,22 @@
 $(document).ready(function(){
 	
+    $("#guestmessage").text($('body').attr('data-current-user-name'));	
 	
-    $(".defaultText").focus(function(srcc){
+    $(".prompt").focus(function(src){
         if ($(this).val() == $(this)[0].title){
-            $(this).removeClass("defaultTextActive");
+            $(this).removeClass("prompt-active");
             $(this).val("");
         }
     });
     
-    $(".defaultText").blur(function(){
+    $(".prompt").blur(function(){
         if ($(this).val() == ""){
-            $(this).addClass("defaultTextActive");
+            $(this).addClass("prompt-active");
             $(this).val($(this)[0].title);
         }
     });
     
-    $(".defaultText").blur(); 
+    $(".prompt").blur(); 
     
     
     // ----- Top Panel Scripts 

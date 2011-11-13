@@ -1,2 +1,11 @@
-<h1>Notes#show</h1>
-<p>Find me in app/views/notes/show.html.erb</p>
+<div id="notes-wrap">
+    <% if user_signed_in? %>
+        <h1 id="notes-heading"><%= @note.title %></h1>
+        <div id="notepad" data-etherpad-id="<%= @pad.id %>"></div>
+        <p>Edit away to your heart's content. All your changes are done in real time and saved automatically so there's no need to worry about losing work or over-writing that of others.</p>
+    <% else %>
+        <h1 id="notes-heading"><%=@note.title %></h1>
+        <div id="notepad-not-logged"><%= @pad.text %></div>
+        <p>As you're not logged in you can only view the text, not edit it. Sorry.</p>
+    <% end %>
+</div>
