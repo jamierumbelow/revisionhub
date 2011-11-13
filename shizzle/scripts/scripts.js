@@ -37,6 +37,7 @@ $(document).ready(function(){
 	});	       
 	
 	// ----------------- AJAX Love
+	/*
 	$.ajaxSetup ({  
         cache: false  
     });  
@@ -51,6 +52,7 @@ $(document).ready(function(){
 				alert("worked" + responseText);
 			});
 	});
+	*/
 
 	
 });
