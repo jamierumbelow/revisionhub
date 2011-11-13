@@ -7,6 +7,7 @@ gem 'mysql'
 gem 'etherpad-lite'
 gem 'devise'
 gem 'thinking-sphinx'
+gem 'octopi'
 
 group :development do
   gem 'activerecord-import'
