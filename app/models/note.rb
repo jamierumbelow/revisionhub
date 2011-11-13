@@ -2,7 +2,7 @@ class Note < ActiveRecord::Base
   belongs_to :course
   has_and_belongs_to_many :tags
   
-  define_indexes do
+  define_index do
     indexes :title
     indexes course.name, :as => :course_name
     indexes course.university.name, :as => :university_name
@@ -10,6 +10,10 @@ class Note < ActiveRecord::Base
   
   def git_file_path
     YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git'] + "/" + course.university.name + '/' + course.name + '/' + name + '.txt'
+  end
+  
+  def relative_git_file_path
+    "/" + course.university.name + '/' + course.name + '/' + name + '.txt'
   end
   
   def write(content)
