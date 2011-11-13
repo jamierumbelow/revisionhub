@@ -5,6 +5,12 @@ class NotesController < ApplicationController
   def show
     @pad = @etherpad.pad(params[:id])
     @note = Note.find params[:id]
+    
+    puts @note.git_file_path
+    
+    unless File.exists?(@note.git_file_path)
+      @git.add(@note.relative_git_file_path).and.commit('-m "Adding lecture note ' + @note.title + ' (' + @note.course.university.name + ' - ' + @note.course.name + ')"').and.push('origin master')
+    end
   end
 
   def create
@@ -30,10 +36,14 @@ class NotesController < ApplicationController
   
   # I'm sorry about this. I know it's horrible. But it's 5:40am.
   def load_git
-    @git = Gittastic.new(YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git'])
+    @git = Gittastic.new(root_path)
   end
   
   def load_etherpad
     @etherpad = EtherpadLite.connect(YAML::load(File.open("#{Rails.root}/config/servers.yml"))['etherpad'], YAML::load(File.open("#{Rails.root}/config/servers.yml"))['etherpad_api_key'])
+  end
+  
+  def root_path
+    @root_path ||= Rails.root.to_s + YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git']
   end
 end

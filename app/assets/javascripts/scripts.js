@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+    $("#guestmessage").text($('body').attr('data-current-user-name'));	
 	
     $(".prompt").focus(function(src){
         if ($(this).val() == $(this)[0].title){
