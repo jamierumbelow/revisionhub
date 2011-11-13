@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Revisionhub</title>
+  <title>RevisionHub</title>
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag "reset" %>
   <%= stylesheet_link_tag "screen" %>
@@ -10,6 +10,14 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "etherpad" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript" charset="utf-8">
+	RevisionHub = {};
+  	RevisionHub.urls = {
+		root_url: '<%= root_url %>',
+		searches_path: '<%= searches_path %>'
+	};
+  </script>
 </head>
 <%= user_data_attributes('body') %>
     <p class="notice"><%= notice %></p>
