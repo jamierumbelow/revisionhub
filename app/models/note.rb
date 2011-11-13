@@ -9,16 +9,28 @@ class Note < ActiveRecord::Base
   end
   
   def git_file_path
-    YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git'] + "/" + course.university.name + '/' + course.name + '/' + name + '.txt'
+    File.expand_path(root_path + "/" + course.university.name.parameterize + '/' + course.name.parameterize + '/' + title.parameterize + '.txt')
   end
   
   def relative_git_file_path
-    "/" + course.university.name + '/' + course.name + '/' + name + '.txt'
+    "/" + course.university.name.parameterize + '/' + course.name.parameterize + '/' + title.parameterize + '.txt'
   end
   
   def write(content)
+    unless File.exists?(root_path + "/" + course.university.name.parameterize)
+      Dir.mkdir(root_path + "/" + course.university.name.parameterize) 
+    end
+    
+    unless File.exists?(root_path + "/" + course.university.name.parameterize + '/' + course.name.parameterize)
+      Dir.mkdir(root_path + "/" + course.university.name.parameterize + '/' + course.name.parameterize)
+    end
+    
     File.open git_file_path, 'w+' do |f|
       f.puts content
     end
+  end
+  
+  def root_path
+    @root_path ||= Rails.root.to_s + YAML::load(File.open("#{Rails.root}/config/servers.yml"))['git']
   end
 end
