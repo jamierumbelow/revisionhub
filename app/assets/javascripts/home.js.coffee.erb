@@ -12,6 +12,12 @@ $ ->
         clearTimeout(timer) if timer
         
         timer = setTimeout =>
-            $.post RevisionHub.urls['searches_path'], { q: $(this).val() }, ( data, status, xhr ) ->
-                $('#results').html data
+            $('#search').submit();
         , 500
+        
+    $('#search').submit ->
+        $.post RevisionHub.urls['searches_path'], { q: $(this).find('input').val() }, ( data, status, xhr ) ->
+            $('#results').html data
+        , 'html'
+            
+        false
