@@ -4,6 +4,8 @@ class Note < ActiveRecord::Base
   
   define_indexes do
     indexes :title
+    indexes course.name, :as => :course_name
+    indexes course.university.name, :as => :university_name
   end
   
   def git_file_path
