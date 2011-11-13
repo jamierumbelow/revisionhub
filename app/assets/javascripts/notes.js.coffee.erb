@@ -1,0 +1,10 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+    # Make an etherpad (test)
+$ ->
+    $("#notepad").pad
+        'host' : 'http://10.30.201.4:9001'
+        'padId' : $('#notepad').attr 'data-etherpad-id' 
+        'userName' : $('body').attr 'data-current-user-name'
+# 

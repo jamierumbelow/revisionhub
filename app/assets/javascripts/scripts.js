@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	
+    $("#guestmessage").text($('body').attr('data-current-user-name'));	
     $(".defaultText").focus(function(srcc){
         if ($(this).val() == $(this)[0].title){
             $(this).removeClass("defaultTextActive");
