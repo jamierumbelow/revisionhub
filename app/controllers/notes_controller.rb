@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   
   def show
     @pad = @etherpad.pad(params[:id])
+    @note = Note.find params[:id]
   end
 
   def create
