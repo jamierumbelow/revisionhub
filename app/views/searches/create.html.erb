@@ -1,0 +1,10 @@
+<% if !@results.blank? %>
+  <% for note in @results %>
+    <div class="note">
+    	<h2><a href="<%= note_path(note) %>">Lecture <%= note.title %></a></h2>
+		<p><span class="university"><%= note.course.university.name %></span> - <%= note.course.name %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No results found. Try re-wording your search query.</p>
+<% end %>

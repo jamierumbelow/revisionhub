@@ -1,7 +1,7 @@
 class University < ActiveRecord::Base
   has_many :courses
   
-  define_indexes do
+  define_index do
     indexes :name
   end
 end
