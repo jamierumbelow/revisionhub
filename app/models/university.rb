@@ -1,5 +1,5 @@
 class University < ActiveRecord::Base
-  has_many :notes
+  has_many :courses
   
   define_index do
     indexes :name

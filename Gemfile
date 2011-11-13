@@ -7,6 +7,11 @@ gem 'mysql'
 gem 'etherpad-lite'
 gem 'devise'
 gem 'thinking-sphinx'
+gem 'grit'
+
+group :development do
+  gem 'activerecord-import'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
