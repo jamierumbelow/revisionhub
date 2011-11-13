@@ -8,6 +8,10 @@ gem 'etherpad-lite'
 gem 'devise'
 gem 'thinking-sphinx'
 
+group :development do
+  gem 'activerecord-import'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
